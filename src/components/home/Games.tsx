@@ -4,22 +4,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
-import ludodice from "@/assets/ludodice.svg"
-import cricket from "@/assets/cricketcard.svg"
-import cards from "@/assets/cards.svg"
-import user from "@/assets/user.png"
-import user2 from "@/assets/user2.png"
-import user3 from "@/assets/user3.png"
-import user4 from "@/assets/user4.png"
-import user5 from "@/assets/user5.png"
-import user6 from "@/assets/user6.png"
-import snake from "@/assets/snakes.svg"
-import horse from "@/assets/horse.svg"
+import { FaBrain, FaGamepad, FaTrophy, FaUsers, FaClock, FaFire } from "react-icons/fa"
 
 interface Game {
   id: string
   title: string
-  image: string
+  icon: React.ReactNode
+  description: string
+  difficulty: 'Easy' | 'Medium' | 'Hard'
+  players: number
+  gradient: string
   player: {
     name: string
     avatar: string
@@ -32,72 +26,105 @@ interface GameFilterProps {
 }
 
 export default function Games() {
-  const [activeFilter, setActiveFilter] = useState('FAST GAMES')
+  const [activeFilter, setActiveFilter] = useState('MEMORY GAMES')
 
   const games: Game[] = [
     {
       id: '1',
-      title: 'FAST LUDO',
-      image: `${ludodice}`,
+      title: 'CARD MATCH',
+      icon: <FaBrain className="text-2xl" />,
+      description: 'Classic memory card matching',
+      difficulty: 'Easy',
+      players: 2,
+      gradient: 'from-primary to-secondary',
       player: {
-        name: 'Cameron Williamson',
-        avatar: `${user}`
+        name: 'Alex Johnson',
+        avatar: '/api/placeholder/32/32'
       }
     },
     {
       id: '2',
-      title: 'QUICK CRICKET',
-      image: `${cricket}`,
+      title: 'PATTERN MEMORY',
+      icon: <FaGamepad className="text-2xl" />,
+      description: 'Remember complex patterns',
+      difficulty: 'Medium',
+      players: 4,
+      gradient: 'from-secondary to-accent',
       player: {
-        name: 'Dianne Russell',
-        avatar: `${user2}`
+        name: 'Sarah Wilson',
+        avatar: '/api/placeholder/32/32'
       }
     },
     {
       id: '3',
-      title: 'TEZZ CARDS',
-      image: `${cards}`,
+      title: 'SPEED RECALL',
+      icon: <FaClock className="text-2xl" />,
+      description: 'Fast-paced memory challenge',
+      difficulty: 'Hard',
+      players: 2,
+      gradient: 'from-accent to-primary',
       player: {
-        name: 'Jane Cooper',
-        avatar: `${user3}`
+        name: 'Mike Chen',
+        avatar: '/api/placeholder/32/32'
       }
     },
     {
       id: '4',
-      title: 'SNAKE & LADDER',
-      image: `${snake}`,
+      title: 'SEQUENCE MASTER',
+      icon: <FaTrophy className="text-2xl" />,
+      description: 'Master sequence memorization',
+      difficulty: 'Medium',
+      players: 3,
+      gradient: 'from-primary to-accent',
       player: {
-        name: 'Cody Fisher',
-        avatar: `${user4}`
+        name: 'Emma Davis',
+        avatar: '/api/placeholder/32/32'
       }
     },
     {
       id: '5',
-      title: 'CHESS',
-      image: `${horse}`,
+      title: 'BRAIN TRAINER',
+      icon: <FaFire className="text-2xl" />,
+      description: 'Ultimate brain workout',
+      difficulty: 'Hard',
+      players: 1,
+      gradient: 'from-secondary to-primary',
       player: {
-        name: 'Wade Warren',
-        avatar: `${user5}`
+        name: 'David Kim',
+        avatar: '/api/placeholder/32/32'
       }
     },
     {
       id: '6',
-      title: 'CARROM',
-      image: `${cards}`,
+      title: 'TEAM MEMORY',
+      icon: <FaUsers className="text-2xl" />,
+      description: 'Collaborative memory game',
+      difficulty: 'Easy',
+      players: 4,
+      gradient: 'from-accent to-secondary',
       player: {
-        name: 'Robert Fox',
-        avatar: `${user6}`
+        name: 'Lisa Brown',
+        avatar: '/api/placeholder/32/32'
       }
     }
   ]
 
-  const filters = ['FAST GAMES', 'LATEST GAMES', '3D GAMES', 'SPORT GAMES']
+  const filters = ['MEMORY GAMES', 'MULTIPLAYER', 'SINGLE PLAYER', 'TOURNAMENTS']
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'Easy': return 'text-secondary'
+      case 'Medium': return 'text-accent'
+      case 'Hard': return 'text-destructive'
+      default: return 'text-muted-foreground'
+    }
+  }
 
   return (
-    <div className="w-full bg-gradient-to-bl from-black via-black to-purple-900/40 p-4 sm:p-6 md:p-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-8">
-          WELCOME TO THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-500">TOP GAMES</span>
-        </h2>
+    <div className="w-full bg-gradient-to-br from-background via-card/10 to-background p-4 sm:p-6 md:p-8">
+      <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
+        EXPLORE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">MEMORY GAMES</span>
+      </h2>
 
       <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
         {/* Filters */}
@@ -114,41 +141,66 @@ export default function Games() {
         </div>
 
         {/* Game Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {games.map((game) => (
             <div
               key={game.id}
-              className="rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/50 to-black/50 backdrop-blur-sm border border-purple-500/20"
+              className="rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border hover:bg-card/70 transition-all duration-300 group"
             >
               {/* Content */}
-              <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
-                <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-purple-900 to-black">
-                  <img
-                    src={game.image}
-                    alt={game.title}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="p-6 space-y-4">
+                {/* Game Icon & Title */}
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${game.gradient} rounded-xl flex items-center justify-center text-white`}>
+                    {game.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-foreground">{game.title}</h3>
+                    <p className="text-sm text-muted-foreground">{game.description}</p>
+                  </div>
                 </div>
 
-                <h3 className="text-sm sm:text-base font-bold text-white truncate">{game.title}</h3>
-
-                <div className="flex items-center gap-2">
-                  <Avatar className="h-6 w-6 sm:h-7 sm:w-7 border border-purple-500">
-                    <AvatarImage src={game.player.avatar} alt={game.player.name} />
-                    <AvatarFallback>{game.player.name[0]}</AvatarFallback>
-                  </Avatar>
-                  <span className="text-xs sm:text-sm text-gray-300 truncate">{game.player.name}</span>
+                {/* Game Stats */}
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-4">
+                    <span className={`font-semibold ${getDifficultyColor(game.difficulty)}`}>
+                      {game.difficulty}
+                    </span>
+                    <span className="text-muted-foreground flex items-center gap-1">
+                      <FaUsers className="text-xs" />
+                      {game.players} Players
+                    </span>
+                  </div>
                 </div>
 
-                <Button 
-                  className="w-full bg-gradient-to-r from-fuchsia-600 to-cyan-400 text-white font-bold py-1 sm:py-2 text-xs sm:text-sm rounded-full 
-                           hover:from-fuchsia-500 hover:to-cyan-300 transition-all duration-300"
-                >
-                  PLAY NOW
-                </Button>
+                {/* Player Info */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="h-8 w-8 border border-border">
+                      <AvatarImage src={game.player.avatar} alt={game.player.name} />
+                      <AvatarFallback className="text-xs">{game.player.name[0]}</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm text-muted-foreground">{game.player.name}</span>
+                  </div>
+                  
+                  <Button 
+                    className={`bg-gradient-to-r ${game.gradient} hover:opacity-90 text-white font-bold py-2 px-4 text-sm rounded-xl transition-all duration-300 group-hover:scale-105 shadow-lg`}
+                  >
+                    PLAY NOW
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-12">
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
+          >
+            VIEW ALL GAMES
+          </Button>
         </div>
       </div>
     </div>
@@ -160,11 +212,11 @@ function GameFilter({ active, children, onClick }: GameFilterProps & { onClick: 
     <button
       onClick={onClick}
       className={cn(
-        "px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300",
+        "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300",
         "border border-transparent",
         active
-          ? "bg-gradient-to-r from-fuchsia-600 to-cyan-400 text-white"
-          : "bg-transparent border-purple-500/50 text-gray-300 hover:border-purple-500 hover:text-white"
+          ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25"
+          : "bg-card/50 border-border text-muted-foreground hover:text-foreground hover:bg-card"
       )}
     >
       {children}

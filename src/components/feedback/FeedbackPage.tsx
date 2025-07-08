@@ -3,9 +3,9 @@ import Navbar from "../navbar/Navbar"
 import FeedBack from "./Feedback"
 
 
-export default function ContactPage() {
+export default function FeedbackPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground dark">
       <Navbar/>
       <main id="feedback" className="container mx-auto pt-8"><FeedBack/></main>
     </div>

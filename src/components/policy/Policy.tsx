@@ -4,7 +4,7 @@ import Navbar from "../navbar/Navbar"
 
 export default function Policy() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground dark">
       <Navbar/>
       <main id="policy" className="container mx-auto pt-8"><Privacy/></main>
     </div>

@@ -1,34 +1,51 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Bot, CreditCard, Users2, Lock, Flag, LucideIcon } from 'lucide-react'
+import { Brain, Shield, Zap, Users, Trophy, LucideIcon } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import ludo from '@/assets/ludo.svg'
-import cricket from '@/assets/cricket.svg'
-import rummy from '@/assets/rummy.svg'
+import { FaBrain, FaGamepad, FaTrophy } from 'react-icons/fa'
 
 interface Game {
-  image: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  gradient: string;
 }
 
 interface FeatureProps {
   icon: LucideIcon;
   text: string;
+  color: string;
 }
 
 export default function Cards(): React.ReactElement {
   const [activeIndex, setActiveIndex] = useState<number>(0)
 
   const games: Game[] = [
-    { image: `${ludo}?height=300&width=300` },
-    { image: `${cricket}?height=300&width=300` },
-    { image: `${rummy}?height=300&width=300` },
+    { 
+      title: "Memory Match",
+      description: "Classic card matching game",
+      icon: <FaBrain className="text-4xl" />,
+      gradient: "from-primary to-secondary"
+    },
+    { 
+      title: "Pattern Memory",
+      description: "Remember and repeat patterns",
+      icon: <FaGamepad className="text-4xl" />,
+      gradient: "from-secondary to-accent"
+    },
+    { 
+      title: "Speed Memory",
+      description: "Fast-paced memory challenges",
+      icon: <FaTrophy className="text-4xl" />,
+      gradient: "from-accent to-primary"
+    },
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % games.length)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [games.length])
 
@@ -58,14 +75,17 @@ export default function Cards(): React.ReactElement {
 
   
   return (
-    <div className='mt-12 pb-16'>
-      <div className="text-center">
+    <div className='mt-20 pb-16'>
+      <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
-          <span className="block text-2xl md:text-3xl font-medium mb-2 text-gray-400">CHOOSE YOUR</span>
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">
-            FAVORITE GAMES
+          <span className="block text-2xl md:text-3xl font-medium mb-2 text-muted-foreground">TRAIN YOUR</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+            MEMORY SKILLS
           </span>
         </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Challenge yourself with engaging memory games designed to improve cognitive function and have fun
+        </p>
       </div>
 
       <div className="relative max-w-6xl mx-auto h-[400px] mb-20 overflow-hidden">
@@ -77,20 +97,22 @@ export default function Cards(): React.ReactElement {
               style={getCardStyle(index)}
             >
               <div className="relative group mx-4">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
-                <div className="relative bg-black rounded-xl overflow-hidden">
-                  <img
-                    src={game.image}
-                    alt={`Game ${index + 1}`}
-                    className="w-full h-[300px] object-cover"
-                  />
-                  {index === activeIndex && (
-                    <Button 
-                      className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-purple-600 hover:from-cyan-500 hover:to-purple-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 animate-none"
-                    >
-                      EASY WIN
-                    </Button>
-                  )}
+                <div className={`absolute inset-0 bg-gradient-to-r ${game.gradient} rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500`}></div>
+                <div className="relative bg-card border border-border rounded-2xl overflow-hidden backdrop-blur-sm">
+                  <div className="p-8 text-center">
+                    <div className={`w-20 h-20 bg-gradient-to-r ${game.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 text-white`}>
+                      {game.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-foreground">{game.title}</h3>
+                    <p className="text-muted-foreground mb-6">{game.description}</p>
+                    {index === activeIndex && (
+                      <Button 
+                        className={`bg-gradient-to-r ${game.gradient} hover:opacity-90 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg`}
+                      >
+                        PLAY NOW
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -100,45 +122,46 @@ export default function Cards(): React.ReactElement {
 
       <div className="flex justify-center gap-6 mb-20">
         <Button 
-          className="relative px-8 py-6 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full font-bold text-white overflow-hidden group"
+          className="relative px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-xl font-bold text-white overflow-hidden group shadow-lg shadow-primary/25"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-600 blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
-          <span className="relative">VIEW ALL</span>
+          <span className="relative">VIEW ALL GAMES</span>
         </Button>
         <Button 
-          className="relative px-8 py-6 bg-transparent border-2 border-purple-600 rounded-full font-bold text-purple-600 overflow-hidden group hover:text-white"
+          variant="outline"
+          className="relative px-8 py-4 border-2 border-primary rounded-xl font-bold text-primary overflow-hidden group hover:bg-primary hover:text-white transition-all duration-300"
         >
-          <div className="absolute inset-0 bg-purple-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-          <span className="relative">PLAY NOW</span>
+          <span className="relative">START PLAYING</span>
         </Button>
       </div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 mb-20">
-        <Feature icon={Bot} text="Bot Free" />
-        <Feature icon={Lock} text="100% Secure" />
-        <Feature icon={CreditCard} text="Instant withdraw" />
-        <Feature icon={Users2} text="24/7 Customer support" />
-        <Feature icon={Flag} text="Made in India" />
+        <Feature icon={Brain} text="Memory Training" color="text-primary" />
+        <Feature icon={Shield} text="100% Secure" color="text-secondary" />
+        <Feature icon={Zap} text="Instant Play" color="text-accent" />
+        <Feature icon={Users} text="Multiplayer" color="text-primary" />
+        <Feature icon={Trophy} text="Win Rewards" color="text-secondary" />
       </div>
 
       <div className="text-center">
         <h2 className="text-3xl font-bold mb-4">
-          <span className="text-yellow-400">100%</span> skilled based games
+          <span className="text-accent">100%</span> Skill-Based Memory Games
         </h2>
-        <p className="text-gray-400">We reached here with our hard work and dedication</p>
+        <p className="text-muted-foreground">Improve your cognitive abilities while having fun with friends</p>
       </div>
     </div>
   )
 }
 
-function Feature({ icon: Icon, text }: Readonly<FeatureProps>): React.ReactElement {
+function Feature({ icon: Icon, text, color }: Readonly<FeatureProps>): React.ReactElement {
   return (
-    <div className="flex flex-col items-center text-center group z-10">
+    <div className="flex flex-col items-center text-center group">
       <div className="relative mb-4">
-        <div className="absolute inset-0 bg-yellow-400 blur-lg opacity-0 group-hover:opacity-75 transition duration-300"></div>
-        <Icon className="w-8 h-8 text-yellow-400 relative" />
+        <div className={`absolute inset-0 ${color.replace('text-', 'bg-')} blur-lg opacity-0 group-hover:opacity-20 transition duration-300 rounded-full`}></div>
+        <div className={`w-12 h-12 ${color.replace('text-', 'bg-')}/20 rounded-xl flex items-center justify-center relative`}>
+          <Icon className={`w-6 h-6 ${color} relative`} />
+        </div>
       </div>
-      <p className="font-semibold">{text}</p>
+      <p className="font-semibold text-foreground">{text}</p>
     </div>
   )
 }
