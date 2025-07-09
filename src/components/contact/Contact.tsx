@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { AlertCircle, CheckCircle2, Mail, MessageSquare } from "lucide-react"
-import { FaBrain, FaDiscord, FaEnvelope, FaPhone } from "react-icons/fa"
+import { FaBrain, FaDiscord, FaEnvelope} from "react-icons/fa"
 import { apiRequest, API_ENDPOINTS } from "../../config/api"
 
 export default function Contact() {

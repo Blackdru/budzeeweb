@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Plus, Minus, Star } from 'lucide-react'
-import { FaAndroid, FaBrain, FaDownload } from "react-icons/fa";
+import { FaAndroid, FaBrain } from "react-icons/fa";
 import { Button } from '../ui/button'
 
 export default function FAQ() {
