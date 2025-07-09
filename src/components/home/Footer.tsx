@@ -5,10 +5,10 @@ export default function Footer() {
   const navigate = useNavigate();
 
   const handleDownload = () => {
-    const apkUrl = "/Budzee.apk";
+    const apkUrl = "/Budzee-v1.0.0.apk";
     const link = document.createElement("a");
     link.href = apkUrl;
-    link.setAttribute("download", "Budzee.apk");
+    link.setAttribute("download", "Budzee-v1.0.0.apk");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
