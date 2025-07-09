@@ -18,12 +18,12 @@ export default function Home() {
     }
 
     // Update to match your actual APK filename
-    const apkUrl = "/Budzee-v1.0.0.apk";
+    const apkUrl = "/Budzee.apk";
   
     // Create a temporary <a> element to trigger download
     const link = document.createElement("a");
     link.href = apkUrl;
-    link.setAttribute("download", "Budzee-v1.0.0.apk");
+    link.setAttribute("download", "Budzee.apk");
     document.body.appendChild(link);
     link.click();
   

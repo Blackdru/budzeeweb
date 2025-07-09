@@ -28,6 +28,16 @@ export default function Navbar() {
   // derive activeSection from current pathname
   const activeSection = location.pathname === "/" ? "home" : location.pathname.slice(1)
 
+  const handleDownload = () => {
+    const apkUrl = "/Budzee.apk";
+    const link = document.createElement("a");
+    link.href = apkUrl;
+    link.setAttribute("download", "Budzee.apk");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleNavClick = (href: string) => {
     if (href === "home") {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -98,7 +108,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <button
                 key={item.href}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleDownload()}
                 className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-in-out text-left ${
                   activeSection === item.href
                     ? "bg-primary text-white shadow-lg shadow-primary/25"

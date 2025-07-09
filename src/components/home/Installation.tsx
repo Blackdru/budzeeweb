@@ -5,10 +5,10 @@ import { FaDownload, FaShieldAlt, FaCog, FaCheckCircle, FaAndroid, FaPlay } from
 
 export default function Installation() {
   const handleDownload = () => {
-    const apkUrl = "/Budzee-v1.0.0.apk";
+    const apkUrl = "/Budzee.apk";
     const link = document.createElement("a");
     link.href = apkUrl;
-    link.setAttribute("download", "Budzee-v1.0.0.apk");
+    link.setAttribute("download", "Budzee.apk");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
