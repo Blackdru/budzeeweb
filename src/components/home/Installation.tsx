@@ -111,12 +111,12 @@ export default function Installation() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-muted-foreground">
               <div>
                 <FaAndroid className="text-2xl text-secondary mx-auto mb-2" />
-                <p className="font-semibold">Android 6.0+</p>
+                <p className="font-semibold">Android 8.0+</p>
                 <p className="text-sm">Compatible with most devices</p>
               </div>
               <div>
                 <FaDownload className="text-2xl text-accent mx-auto mb-2" />
-                <p className="font-semibold">~25MB</p>
+                <p className="font-semibold">~45MB</p>
                 <p className="text-sm">Small download size</p>
               </div>
               <div>

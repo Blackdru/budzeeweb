@@ -54,14 +54,15 @@ export default function Home() {
           <span className="bg-gradient-to-r from-primary via-secondary to-accent text-transparent bg-clip-text">
             BUDZEE
           </span>
+          <span className="sr-only">- Ultimate Memory Game Challenge</span>
         </h1>
         
         <h2 className="text-2xl md:text-4xl font-semibold mb-4 text-muted-foreground">
-          Ultimate Memory Game Challenge
+          Ultimate Memory Game Challenge - Free Android APK Download
         </h2>
 
         <p className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Test your memory skills in this exciting multiplayer game. Challenge friends, win rewards, and become the memory champion!
+          Test your memory skills in this exciting multiplayer brain training game. Challenge friends, improve cognitive abilities, win rewards, and become the memory champion! Download free for Android devices.
         </p>
 
         {/* Feature Stats */}
@@ -120,6 +121,52 @@ export default function Home() {
         <div className="text-sm text-muted-foreground space-y-2">
           <p>🎮 Free to Play • 🧠 Memory Training • 🏆 Multiplayer Competitions</p>
           <p>Compatible with Android 8.0+ • Size: ~45MB</p>
+        </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-16 max-w-4xl mx-auto text-left">
+          <h3 className="text-3xl font-bold mb-6 text-center">Why Choose Budzee Memory Game?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8">
+              <h4 className="text-xl font-semibold mb-4 text-primary">🧠 Brain Training Benefits</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                Enhance your cognitive abilities with scientifically-backed memory exercises. Regular play improves focus, concentration, and memory retention while having fun with friends.
+              </p>
+            </div>
+            <div className="bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8">
+              <h4 className="text-xl font-semibold mb-4 text-secondary">🏆 Competitive Multiplayer</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                Challenge friends in real-time memory battles. Compete in tournaments, climb leaderboards, and prove you're the ultimate memory champion.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-card/20 backdrop-blur-sm border border-border rounded-2xl p-8 mb-12">
+            <h4 className="text-2xl font-semibold mb-4 text-center">How to Play Budzee</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-primary">1</span>
+                </div>
+                <h5 className="font-semibold mb-2">Download & Install</h5>
+                <p className="text-sm text-muted-foreground">Get the free APK and install on your Android device</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-secondary">2</span>
+                </div>
+                <h5 className="font-semibold mb-2">Challenge Friends</h5>
+                <p className="text-sm text-muted-foreground">Invite friends or join multiplayer matches</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-accent">3</span>
+                </div>
+                <h5 className="font-semibold mb-2">Win Rewards</h5>
+                <p className="text-sm text-muted-foreground">Earn points and climb the global leaderboard</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

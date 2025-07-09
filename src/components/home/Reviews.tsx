@@ -8,8 +8,8 @@ const reviews = [
     rating: 5,
     text: "Budzee has completely transformed how I think about memory training. The multiplayer battles are incredibly engaging, and I've noticed a real improvement in my cognitive abilities. The game design is beautiful and intuitive!",
     author: "Sathvik",
-    avatar: "SC",
-    badge: "Memory Master",
+    avatar: "SV",
+    badge: "Daily Player",
     icon: <FaBrain className="text-primary" />
   },
   {
@@ -17,8 +17,8 @@ const reviews = [
     rating: 5,
     text: "As a competitive gamer, I love the strategic depth of Budzee's memory challenges. The real-time multiplayer matches are intense and rewarding. The community is fantastic and very supportive!",
     author: "Prashant Rangam",
-    avatar: "AR",
-    badge: "Tournament Winner",
+    avatar: "PR",
+    badge: "Daily Player",
     icon: <FaTrophy className="text-accent" />
   },
   {
@@ -26,7 +26,7 @@ const reviews = [
     rating: 5,
     text: "The variety of memory games in Budzee keeps me coming back every day. From pattern matching to sequence recall, each game mode offers unique challenges. Perfect for brain training during commutes!",
     author: "Kumar Jadhav",
-    avatar: "EJ",
+    avatar: "KJ",
     badge: "Daily Player",
     icon: <FaGamepad className="text-secondary" />
   },
@@ -35,8 +35,8 @@ const reviews = [
     rating: 5,
     text: "I've tried many brain training apps, but Budzee stands out with its smooth gameplay and rewarding progression system. The graphics are stunning and the sound design really enhances the experience.",
     author: "Ankit Patel",
-    avatar: "MK",
-    badge: "Brain Trainer",
+    avatar: "AP",
+    badge: "Daily Player",
     icon: <FaBrain className="text-primary" />
   },
   {
@@ -44,8 +44,8 @@ const reviews = [
     rating: 5,
     text: "Budzee makes memory training fun and social! Playing with friends adds a competitive element that keeps me motivated. The app runs smoothly and the customer support is excellent.",
     author: "V. Gopal",
-    avatar: "LT",
-    badge: "Social Gamer",
+    avatar: "VG",
+    badge: "Daily Player",
     icon: <FaTrophy className="text-accent" />
   }
 ]
@@ -169,16 +169,16 @@ export default function Reviews() {
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">4.9/5</div>
+            <div className="text-3xl font-bold text-primary mb-2">4.7/5</div>
             <div className="text-muted-foreground">Average Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-secondary mb-2">10K+</div>
+            <div className="text-3xl font-bold text-secondary mb-2">28K+</div>
             <div className="text-muted-foreground">Happy Players</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-accent mb-2">50K+</div>
-            <div className="text-muted-foreground">Games Played</div>
+            <div className="text-3xl font-bold text-accent mb-2">3L+</div>
+            <div className="text-muted-foreground">Daily Payments</div>
           </div>
         </div>
       </div>

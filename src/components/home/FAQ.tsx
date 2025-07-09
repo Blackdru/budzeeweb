@@ -111,7 +111,7 @@ export default function FAQ() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="text-center md:text-left">
             <div className="text-6xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
-              50K+
+              25K+
             </div>
             <div className="text-2xl font-semibold text-foreground">DOWNLOADS</div>
             <p className="text-muted-foreground mt-2">Join thousands of players improving their memory skills</p>
@@ -124,7 +124,7 @@ export default function FAQ() {
             </p>
             
             <div className="flex items-center gap-4 mb-6">
-              <div className="text-5xl font-bold text-accent">4.9</div>
+              <div className="text-5xl font-bold text-accent">4.7</div>
               <div className="flex items-center">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-accent fill-accent" />
@@ -166,13 +166,6 @@ export default function FAQ() {
               >
                 <FaAndroid className="mr-3 h-5 w-5" />
                 DOWNLOAD APK
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                <FaDownload className="mr-3 h-5 w-5" />
-                LEARN MORE
               </Button>
             </div>
           </div>

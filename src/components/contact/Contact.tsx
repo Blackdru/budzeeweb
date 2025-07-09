@@ -117,19 +117,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email Support</h3>
-                  <p className="text-muted-foreground">support@budzee.com</p>
+                  <p className="text-muted-foreground">support@budzee.in</p>
                   <p className="text-sm text-muted-foreground">Response within 24 hours</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 bg-card/50 backdrop-blur-sm border border-border rounded-xl">
-                <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
-                  <FaPhone className="text-secondary text-lg" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">Phone Support</h3>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
                 </div>
               </div>
 

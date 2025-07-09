@@ -66,11 +66,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <FaEnvelope className="text-primary" />
-                support@budzee.com
-              </li>
-              <li className="flex items-center gap-2">
-                <FaPhone className="text-secondary" />
-                +1 (555) 123-4567
+                Email : support@budzee.in
               </li>
               <li className="flex space-x-4 pt-2">
                 <a href="#" className="hover:text-primary transition-colors">
@@ -95,8 +91,9 @@ export default function Footer() {
           <p>
             © 2025{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-semibold">Budzee</span>
-            {' '}| All Rights Reserved | Budrock Technologies Private Limited
+            {' '}| All Rights Reserved
           </p>
+          <p>Budrock Technologies Private Limited</p>
         </div>
       </div>
     </footer>
