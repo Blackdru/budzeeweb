@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { Button } from "../ui/button"
-import { FaBrain } from "react-icons/fa"
 import { useNavigate, useLocation } from "react-router-dom"
 
 export default function Navbar() {

@@ -1,4 +1,4 @@
-import { FaYoutube, FaInstagram, FaDiscord, FaBrain, FaAndroid, FaEnvelope } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaDiscord, FaAndroid, FaEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
