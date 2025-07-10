@@ -21,9 +21,7 @@ export default function Footer() {
           {/* Budzee Column */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <FaBrain className="text-xl text-white" />
-              </div>
+              <img src="/logo.png" alt="Budzee Logo" className="w-10 h-10 rounded-xl" />
               <h3 className="text-foreground font-bold text-xl">Budzee</h3>
             </div>
             <p className="text-sm leading-relaxed mb-4">

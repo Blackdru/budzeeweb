@@ -52,9 +52,7 @@ export default function Navbar() {
     <header className="px-6 py-4 flex items-center justify-between fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b border-border z-20">
       {/* Logo */}
       <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-          <FaBrain className="text-xl text-white" />
-        </div>
+        <img src="/logo.png" alt="Budzee Logo" className="w-10 h-10 rounded-xl" />
         <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
           Budzee
         </span>
@@ -98,9 +96,7 @@ export default function Navbar() {
         <SheetContent side="right" className="bg-card border-border">
           <SheetHeader>
             <SheetTitle className="text-foreground flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <FaBrain className="text-sm text-white" />
-              </div>
+              <img src="/logo.png" alt="Budzee Logo" className="w-8 h-8 rounded-lg" />
               <span>Budzee</span>
             </SheetTitle>
           </SheetHeader>
