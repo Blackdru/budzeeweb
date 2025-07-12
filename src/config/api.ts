@@ -6,6 +6,10 @@ export const API_ENDPOINTS = {
   contact: `${API_BASE_URL}/api/website/contact`,
   feedback: `${API_BASE_URL}/api/feedback/submit`, // Unified feedback endpoint
   downloadTrack: `${API_BASE_URL}/api/website/download-track`,
+  trackVisitor: `${API_BASE_URL}/api/website/track-visitor`,
+  updateDuration: `${API_BASE_URL}/api/website/update-duration`,
+  analytics: `${API_BASE_URL}/api/website/analytics`,
+  visitors: `${API_BASE_URL}/api/website/visitors`,
   stats: `${API_BASE_URL}/api/website/stats`,
   appInfo: `${API_BASE_URL}/api/website/app-info`,
   newsletter: `${API_BASE_URL}/api/website/newsletter`,

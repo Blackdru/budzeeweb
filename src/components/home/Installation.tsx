@@ -2,9 +2,13 @@
 
 import { Button } from "@/components/ui/button"
 import { FaDownload, FaShieldAlt, FaCog, FaCheckCircle, FaAndroid, FaPlay } from "react-icons/fa"
+import trackingService from "../../services/trackingService"
 
 export default function Installation() {
-  const handleDownload = () => {
+  const handleDownload = async () => {
+    // Track download
+    await trackingService.trackDownload("website-installation");
+    
     const apkUrl = "/Budzee.apk";
     const link = document.createElement("a");
     link.href = apkUrl;

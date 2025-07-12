@@ -1,21 +1,11 @@
 import { Button } from "../ui/button";
 import { FaAndroid, FaDownload, FaGamepad, FaBrain, FaTrophy } from "react-icons/fa";
-import { apiRequest, API_ENDPOINTS } from "../../config/api";
+import trackingService from "../../services/trackingService";
 
 export default function Home() {
   const handleDownload = async () => {
     // Track download
-    try {
-      await apiRequest(API_ENDPOINTS.downloadTrack, {
-        method: "POST",
-        body: JSON.stringify({
-          source: "website-home",
-          userAgent: navigator.userAgent
-        })
-      });
-    } catch (error) {
-      console.log('Download tracking failed:', error);
-    }
+    await trackingService.trackDownload("website-home");
 
     // Update to match your actual APK filename
     const apkUrl = "/Budzee.apk";
@@ -54,49 +44,51 @@ export default function Home() {
           <span className="bg-gradient-to-r from-primary via-secondary to-accent text-transparent bg-clip-text">
             BUDZEE
           </span>
-          <span className="sr-only">- Ultimate Memory Game Challenge</span>
+          <span className="sr-only">- Ultimate Memory Game</span>
         </h1>
         
         <h2 className="text-2xl md:text-4xl font-semibold mb-4 text-muted-foreground">
-          Ultimate Memory Game Challenge - Free Android APK Download
+          Ultimate Memory Game.
         </h2>
 
         <p className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Test your memory skills in this exciting multiplayer brain training game. Challenge friends, improve cognitive abilities, win rewards, and become the memory champion! Download free for Android devices.
-        </p>
+          Test your memory in this exciting multiplayer brain training game. </p>
+          <p className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Flip. Match. Win.</p>
 
         {/* Feature Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
-          <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                <FaGamepad className="text-2xl text-primary" />
-              </div>
-            </div>
-            <p className="text-3xl font-bold text-primary mb-2">Multiplayer</p>
-            <p className="text-muted-foreground">Real-time gaming</p>
-          </div>
-          
-          <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
-                <FaBrain className="text-2xl text-secondary" />
-              </div>
-            </div>
-            <p className="text-3xl font-bold text-secondary mb-2">Memory</p>
-            <p className="text-muted-foreground">Brain training</p>
-          </div>
-          
-          <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:bg-card/70 transition-all duration-300">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center">
-                <FaTrophy className="text-2xl text-accent" />
-              </div>
-            </div>
-            <p className="text-3xl font-bold text-accent mb-2">Rewards</p>
-            <p className="text-muted-foreground">Win prizes</p>
-          </div>
-        </div>
+<div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-16 max-w-4xl mx-auto px-2 sm:px-4">
+  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 sm:p-6 hover:bg-card/70 transition-all duration-300 text-center">
+    <div className="flex items-center justify-center mb-2 sm:mb-4">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+        <FaGamepad className="text-xl sm:text-2xl text-primary" />
+      </div>
+    </div>
+    <p className="text-sm sm:text-3xl font-bold text-primary mb-1 sm:mb-2">Realtime</p>
+    <p className="text-sm sm:text-base text-muted-foreground">Real players</p>
+  </div>
+
+  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 sm:p-6 hover:bg-card/70 transition-all duration-300 text-center">
+    <div className="flex items-center justify-center mb-2 sm:mb-4">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+        <FaBrain className="text-xl sm:text-2xl text-secondary" />
+      </div>
+    </div>
+    <p className="text-sm sm:text-3xl font-bold text-secondary mb-1 sm:mb-2">Memory</p>
+    <p className="text-sm sm:text-base text-muted-foreground">Brain training</p>
+  </div>
+
+  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-4 sm:p-6 hover:bg-card/70 transition-all duration-300 text-center">
+    <div className="flex items-center justify-center mb-2 sm:mb-4">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/20 rounded-xl flex items-center justify-center">
+        <FaTrophy className="text-xl sm:text-2xl text-accent" />
+      </div>
+    </div>
+    <p className="text-sm sm:text-3xl font-bold text-accent mb-1 sm:mb-2">Rewards</p>
+    <p className="text-sm sm:text-base text-muted-foreground">Win prizes</p>
+  </div>
+</div>
+
 
         {/* Download Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
