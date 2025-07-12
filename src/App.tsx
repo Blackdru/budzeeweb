@@ -8,7 +8,6 @@ import ContactPage from './components/contact/ContactPage';
 import FeedbackPage from './components/feedback/FeedbackPage';
 import Analytics from './components/admin/Analytics';
 import { HelmetProvider } from 'react-helmet-async';
-import trackingService from './services/trackingService';
 
 
 function App() {
