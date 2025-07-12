@@ -60,7 +60,7 @@ class TrackingService {
 
   private setupVisibilityTracking() {
     let isVisible = !document.hidden;
-    let visibilityStart;
+    let visibilityStart = Date.now();
 
     const handleVisibilityChange = () => {
       if (document.hidden && isVisible) {
@@ -70,7 +70,7 @@ class TrackingService {
       } else if (!document.hidden && !isVisible) {
         // Page became visible
         isVisible = true;
-        visibilityStart = Date.now();
+        visibilityStart;
       }
     };
 
